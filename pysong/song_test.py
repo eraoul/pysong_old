@@ -7,10 +7,11 @@ from mido.messages import Message
 from mido.midifiles.meta import MetaMessage
 from pretty_midi import PrettyMIDI
 
-from Core.pretty_midi_utils import is_monophonic, get_all_time_signatures
-from Core.song import Song
-from Core.song_elements import TrackType, TimeSignature, Key, Mode, Measure, Event, Note
-from Core.song_midi_converter import SongMidiConverter
+from pysong.pretty_midi_utils import is_monophonic, get_all_time_signatures
+from pysong.song import Song
+from pysong.song_elements import TrackType, TimeSignature, Key, Mode, Measure, Event, Note
+from pysong.song_midi_converter import SongMidiConverter
+
 
 class Test_song(unittest.TestCase):
     @staticmethod

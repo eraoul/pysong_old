@@ -6,12 +6,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pysong",
-    version="0.0.3",
+    version="0.0.4",
     author="Eric Nichols",
     author_email="epnichols@gmail.com",
     description="A package providing data structures for representing symbolic musical scores",
     install_requires=[
         'mido',
+        'pretty-midi',
     ],
     long_description=long_description,
     long_description_content_type="text/markdown",
