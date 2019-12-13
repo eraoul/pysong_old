@@ -14,14 +14,12 @@
 import gzip
 import pickle
 
-from Core.song_elements import Track, TimeSignature, Key, TrackType
-import Core
+from pysong.song_elements import Track, TimeSignature, Key, TrackType
 
 
 class Song:
     """Stores an entire symbolic score for a song. Contains multiple tracks."""
     def __init__(self, name='', ticks_per_beat=480): #TODO: add other params (midi_path, h5_path, original key?)
-        self.version = '0.2'
         self.name = name
         self.time_signature = TimeSignature()
         self.key = Key(tonic_pitch_class=0)
@@ -35,7 +33,7 @@ class Song:
 
         # TODO: represent mid-score key signature changes
 
-    def __str__(self):
+    def __repr__(self):
         return "Song: %s. %d track%s. Time signature: %s. Key: %s" % (
             self.name, len(self.tracks), '' if len(self.tracks) == 1 else 's',
             str(self.time_signature), str(self.key))

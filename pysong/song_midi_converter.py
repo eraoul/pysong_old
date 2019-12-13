@@ -12,9 +12,9 @@ from enum import IntEnum
 from mido import Message, MetaMessage, MidiFile, MidiTrack
 from pretty_midi import PrettyMIDI, Instrument
 
-from Core.pretty_midi_utils import get_all_time_signatures
-from Core.song import Song
-from Core.song_elements import TrackType, Note, Event, Measure
+from pysong.pretty_midi_utils import get_all_time_signatures
+from pysong.song import Song
+from pysong.song_elements import TrackType, Note, Event, Measure
 
 
 _DRUM_CHANNEL = 9

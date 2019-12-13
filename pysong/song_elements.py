@@ -4,8 +4,7 @@ from copy import deepcopy
 from enum import Enum
 from functools import total_ordering
 
-from Core.exceptions import ArgumentError
-import Core
+from pysong.exceptions import ArgumentError
 
 
 class TimeSignature:
@@ -14,7 +13,7 @@ class TimeSignature:
         self.numerator = numerator
         self.denominator = denominator
 
-    def __str__(self):
+    def __repr__(self):
         return '%d/%d' % (self.numerator, self.denominator)
 
     def __eq__(self, ts2):
@@ -67,7 +66,7 @@ class Key:
             else:
                 self.tonic_pitch_class = _SHARPS_TO_TONIC_MINOR[num_sharps]
 
-    def __str__(self):
+    def __repr__(self):
         if self.mode == Mode.MAJOR:
             name_map = _PC_TO_NAME_MAJOR
         else:
@@ -126,7 +125,7 @@ class Track:
                 return False
         return True
 
-    def __str__(self):
+    def __repr__(self):
         return '%s (program:%d, channel=%d, type=%s)' % (self.name, self.program, self.channel,
                                                          self.track_type.name)
 
@@ -188,7 +187,7 @@ class Measure:
                 return False
         return True
 
-    def __str__(self):
+    def __repr__(self):
         s = 'Measure:'
         for event in self:
             s += '\n\t%s' % str(event)
@@ -229,7 +228,7 @@ class Event:
                 return False
         return True
 
-    def __str__(self):
+    def __repr__(self):
         s = 'Event duration: %d [' % self.duration
         for i, note in enumerate(self.notes):
             s += str(note)
@@ -266,7 +265,7 @@ class Note:
         assert isinstance(n2, Note)
         return self.midi_pitch < n2.midi_pitch
 
-    def __str__(self):
+    def __repr__(self):
         tie_string = ''
         if self.tie_from_previous:
             tie_string = 'TIE'
